@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="CodeDiscussion.Api/CodeDiscussion.Api.csproj" />
+  <Project Path="CodeDiscussion.Application/CodeDiscussion.Application.csproj" />
+  <Project Path="CodeDiscussion.Domain/CodeDiscussion.Domain.csproj" />
+  <Project Path="CodeDiscussion.Infrastructure/CodeDiscussion.Infrastructure.csproj" />
+</Solution>

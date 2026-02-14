@@ -1,0 +1,6 @@
+@CodeDiscussion.Api_HostAddress = http://localhost:5081
+
+GET {{CodeDiscussion.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

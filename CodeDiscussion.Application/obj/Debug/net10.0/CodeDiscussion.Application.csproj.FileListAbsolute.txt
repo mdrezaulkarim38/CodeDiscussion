@@ -1,0 +1,16 @@
+C:\Users\Shuvo\Desktop\Practice\CodeDiscussion\CodeDiscussion.Application\bin\Debug\net10.0\CodeDiscussion.Application.deps.json
+C:\Users\Shuvo\Desktop\Practice\CodeDiscussion\CodeDiscussion.Application\bin\Debug\net10.0\CodeDiscussion.Application.dll
+C:\Users\Shuvo\Desktop\Practice\CodeDiscussion\CodeDiscussion.Application\bin\Debug\net10.0\CodeDiscussion.Application.pdb
+C:\Users\Shuvo\Desktop\Practice\CodeDiscussion\CodeDiscussion.Application\bin\Debug\net10.0\CodeDiscussion.Domain.dll
+C:\Users\Shuvo\Desktop\Practice\CodeDiscussion\CodeDiscussion.Application\bin\Debug\net10.0\CodeDiscussion.Domain.pdb
+C:\Users\Shuvo\Desktop\Practice\CodeDiscussion\CodeDiscussion.Application\obj\Debug\net10.0\CodeDiscussion.Application.csproj.AssemblyReference.cache
+C:\Users\Shuvo\Desktop\Practice\CodeDiscussion\CodeDiscussion.Application\obj\Debug\net10.0\CodeDiscussion.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Shuvo\Desktop\Practice\CodeDiscussion\CodeDiscussion.Application\obj\Debug\net10.0\CodeDiscussion.Application.AssemblyInfoInputs.cache
+C:\Users\Shuvo\Desktop\Practice\CodeDiscussion\CodeDiscussion.Application\obj\Debug\net10.0\CodeDiscussion.Application.AssemblyInfo.cs
+C:\Users\Shuvo\Desktop\Practice\CodeDiscussion\CodeDiscussion.Application\obj\Debug\net10.0\CodeDiscussion.Application.csproj.CoreCompileInputs.cache
+C:\Users\Shuvo\Desktop\Practice\CodeDiscussion\CodeDiscussion.Application\obj\Debug\net10.0\CodeDiscussion.Application.sourcelink.json
+C:\Users\Shuvo\Desktop\Practice\CodeDiscussion\CodeDiscussion.Application\obj\Debug\net10.0\CodeDisc.23F19E79.Up2Date
+C:\Users\Shuvo\Desktop\Practice\CodeDiscussion\CodeDiscussion.Application\obj\Debug\net10.0\CodeDiscussion.Application.dll
+C:\Users\Shuvo\Desktop\Practice\CodeDiscussion\CodeDiscussion.Application\obj\Debug\net10.0\refint\CodeDiscussion.Application.dll
+C:\Users\Shuvo\Desktop\Practice\CodeDiscussion\CodeDiscussion.Application\obj\Debug\net10.0\CodeDiscussion.Application.pdb
+C:\Users\Shuvo\Desktop\Practice\CodeDiscussion\CodeDiscussion.Application\obj\Debug\net10.0\ref\CodeDiscussion.Application.dll
