@@ -50,7 +50,10 @@ Clone repository:
 ```bash
 git clone https://github.com/mdrezaulkarim38/CodeDiscussion.Api.git
 
-👤 Author
-Rezaul Karim
-Portfolio: https://superman-shuvo.web.app/
-LinkedIn: https://linkedin.com/in/supermanshuvo
+```
+
+
+### 👤 Author
+## Rezaul Karim
+#### Portfolio: https://superman-shuvo.web.app/
+#### LinkedIn: https://linkedin.com/in/supermanshuvo
