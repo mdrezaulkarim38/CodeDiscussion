@@ -4,7 +4,7 @@ using CodeDiscussion.Infrastructure.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace CodeDiscussion.Infrastructure.Persistence;
+namespace CodeDiscussion.Infrastructure.DbContext;
 
 public class AppDbContext : IdentityDbContext<ApplicationUserIdentity, IdentityRole<Guid>, Guid>
 {
