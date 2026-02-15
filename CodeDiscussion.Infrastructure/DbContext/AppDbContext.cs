@@ -32,9 +32,10 @@ public class AppDbContext : IdentityDbContext<ApplicationUserIdentity, IdentityR
 
         // Answer - Question
         builder.Entity<Answer>()
-            .HasOne(a => a.Question)
-            .WithMany(q => q.Answers)
-            .HasForeignKey(a => a.QuestionId);
+            .HasOne<ApplicationUserIdentity>()
+            .WithMany()
+            .HasForeignKey(a => a.UserId)
+            .OnDelete(DeleteBehavior.Restrict);
 
         // Answer - User
         builder.Entity<Answer>()

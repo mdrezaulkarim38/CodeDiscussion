@@ -12,24 +12,6 @@ namespace CodeDiscussion.Infrastructure.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "ApplicationUser",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    UserName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Bio = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Reputation = table.Column<int>(type: "int", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ApplicationUser", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "AspNetRoles",
                 columns: table => new
                 {
@@ -201,7 +183,6 @@ namespace CodeDiscussion.Infrastructure.Migrations
                     ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ExternalUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    UserId1 = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false)
@@ -209,12 +190,6 @@ namespace CodeDiscussion.Infrastructure.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Questions", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Questions_ApplicationUser_UserId1",
-                        column: x => x.UserId1,
-                        principalTable: "ApplicationUser",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Questions_AspNetUsers_UserId",
                         column: x => x.UserId,
@@ -231,7 +206,6 @@ namespace CodeDiscussion.Infrastructure.Migrations
                     Content = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     QuestionId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    UserId1 = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     VoteCount = table.Column<int>(type: "int", nullable: false),
                     IsAccepted = table.Column<bool>(type: "bit", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -241,12 +215,6 @@ namespace CodeDiscussion.Infrastructure.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Answers", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Answers_ApplicationUser_UserId1",
-                        column: x => x.UserId1,
-                        principalTable: "ApplicationUser",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Answers_AspNetUsers_UserId",
                         column: x => x.UserId,
@@ -306,12 +274,6 @@ namespace CodeDiscussion.Infrastructure.Migrations
                         principalTable: "Answers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Votes_ApplicationUser_UserId",
-                        column: x => x.UserId,
-                        principalTable: "ApplicationUser",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
@@ -323,11 +285,6 @@ namespace CodeDiscussion.Infrastructure.Migrations
                 name: "IX_Answers_UserId",
                 table: "Answers",
                 column: "UserId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Answers_UserId1",
-                table: "Answers",
-                column: "UserId1");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -372,11 +329,6 @@ namespace CodeDiscussion.Infrastructure.Migrations
                 name: "IX_Questions_UserId",
                 table: "Questions",
                 column: "UserId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Questions_UserId1",
-                table: "Questions",
-                column: "UserId1");
 
             migrationBuilder.CreateIndex(
                 name: "IX_QuestionTags_TagId",
@@ -430,9 +382,6 @@ namespace CodeDiscussion.Infrastructure.Migrations
 
             migrationBuilder.DropTable(
                 name: "Questions");
-
-            migrationBuilder.DropTable(
-                name: "ApplicationUser");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");

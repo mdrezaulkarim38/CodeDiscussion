@@ -50,9 +50,6 @@ namespace CodeDiscussion.Infrastructure.Migrations
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("UserId1")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<int>("VoteCount")
                         .HasColumnType("int");
 
@@ -62,43 +59,7 @@ namespace CodeDiscussion.Infrastructure.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.HasIndex("UserId1");
-
                     b.ToTable("Answers");
-                });
-
-            modelBuilder.Entity("CodeDiscussion.Domain.Entities.ApplicationUser", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Bio")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<int>("Reputation")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("UserName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ApplicationUser");
                 });
 
             modelBuilder.Entity("CodeDiscussion.Domain.Entities.Question", b =>
@@ -133,14 +94,9 @@ namespace CodeDiscussion.Infrastructure.Migrations
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("UserId1")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("Id");
 
                     b.HasIndex("UserId");
-
-                    b.HasIndex("UserId1");
 
                     b.ToTable("Questions");
                 });
@@ -435,15 +391,7 @@ namespace CodeDiscussion.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("CodeDiscussion.Domain.Entities.ApplicationUser", "User")
-                        .WithMany("Answers")
-                        .HasForeignKey("UserId1")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Question");
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("CodeDiscussion.Domain.Entities.Question", b =>
@@ -453,14 +401,6 @@ namespace CodeDiscussion.Infrastructure.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
-
-                    b.HasOne("CodeDiscussion.Domain.Entities.ApplicationUser", "User")
-                        .WithMany("Questions")
-                        .HasForeignKey("UserId1")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("CodeDiscussion.Domain.Entities.QuestionTag", b =>
@@ -490,15 +430,7 @@ namespace CodeDiscussion.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("CodeDiscussion.Domain.Entities.ApplicationUser", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Answer");
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
@@ -555,13 +487,6 @@ namespace CodeDiscussion.Infrastructure.Migrations
             modelBuilder.Entity("CodeDiscussion.Domain.Entities.Answer", b =>
                 {
                     b.Navigation("Votes");
-                });
-
-            modelBuilder.Entity("CodeDiscussion.Domain.Entities.ApplicationUser", b =>
-                {
-                    b.Navigation("Answers");
-
-                    b.Navigation("Questions");
                 });
 
             modelBuilder.Entity("CodeDiscussion.Domain.Entities.Question", b =>
