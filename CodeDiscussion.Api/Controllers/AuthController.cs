@@ -1,4 +1,5 @@
 using CodeDiscussion.Infrastructure.Identity;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -46,5 +47,12 @@ public class AuthController : ControllerBase
         var roles = await _userManager.GetRolesAsync(user);
         var token = _tokenService.GenerateToken(user, roles);
         return Ok(new { token });
+    }
+
+    [Authorize]
+    [HttpGet("secure")]
+    public IActionResult Secure()
+    {
+        return Ok("You are authenticated");
     }
 }
