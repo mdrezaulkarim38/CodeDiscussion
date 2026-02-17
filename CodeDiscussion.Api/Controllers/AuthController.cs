@@ -1,3 +1,4 @@
+using CodeDiscussion.Application.Dto.Auth;
 using CodeDiscussion.Infrastructure.Identity;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -16,14 +17,14 @@ public class AuthController : ControllerBase
     }
 
     [HttpPost("register")]
-    public async Task<IActionResult> Register(string username, string email, string password)
+    public async Task<IActionResult> Register([FromBody] RegisterRequestDto registerRequestDto)
     {
         var user = new ApplicationUserIdentity
         {
-            UserName = username,
-            Email = email
+            UserName = registerRequestDto.Username,
+            Email = registerRequestDto.Email
         };
-        var result = await _userManager.CreateAsync(user, password);
+        var result = await _userManager.CreateAsync(user, registerRequestDto.Password);
         if(!result.Succeeded)
         {
             return BadRequest(result.Errors);
@@ -32,14 +33,14 @@ public class AuthController : ControllerBase
     }
 
     [HttpPost("login")]
-    public async Task<IActionResult> Login(string email, string password)
+    public async Task<IActionResult> Login([FromBody] LoginRequestDto request)
     {
-        var user = await _userManager.FindByEmailAsync(email);
+        var user = await _userManager.FindByEmailAsync(request.Email);
         if(user == null)
         {
             return Unauthorized("Invalid credentials");
         }
-        var valid = await _userManager.CheckPasswordAsync(user, password);
+        var valid = await _userManager.CheckPasswordAsync(user, request.Password);
         if(!valid)
         {
             return Unauthorized("Invalid credentials");
